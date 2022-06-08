@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebUI.Models
+namespace WebUI.ViewModels.Category
 {
-    public class Category
+    public class CategoryCreateVM
     {
-        public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
-        public bool IsDeleted { get; set; }
     }
 }
