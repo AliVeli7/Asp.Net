@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WebUI.ViewModels.Category
 {
     public class CategoryCreateVM
-    {
+    {   
         [Required]
         public string Name { get; set; }
     }
