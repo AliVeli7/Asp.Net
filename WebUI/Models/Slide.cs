@@ -11,9 +11,9 @@ namespace WebUI.Models
     public class Slide
     {
         public string Url { get; set; }
-        [NotMapped, Required]
-        public int Id { get; set; }
         
+        public int Id { get; set; }
+        [NotMapped, Required]
         public IFormFile Photo { get; set; }
     }
 }

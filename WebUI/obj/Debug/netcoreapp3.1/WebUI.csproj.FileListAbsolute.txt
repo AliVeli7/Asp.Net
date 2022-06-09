@@ -305,3 +305,5 @@ C:\Users\User\Desktop\WebUI\WebUI\obj\Debug\netcoreapp3.1\WebUI.csproj.CopyCompl
 C:\Users\User\Desktop\WebUI\WebUI\obj\Debug\netcoreapp3.1\WebUI.genruntimeconfig.cache
 C:\Users\User\Desktop\WebUI\WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Category\Update.cshtml.g.cs
 C:\Users\User\Desktop\WebUI\WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slide\Index.cshtml.g.cs
+C:\Users\User\Desktop\WebUI\WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slide\Create.cshtml.g.cs
+C:\Users\User\Desktop\WebUI\WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slide\Update.cshtml.g.cs
