@@ -1,7 +1,7 @@
 ﻿@using WebUI.Models
-@model IEnumerable<Category>
+@model HomeViewModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Show";
     int count = 1;
 }
 
@@ -27,18 +27,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var category in Model)
+                            @foreach (var product in Model.Products)
                             {
                                 <tr>
                                     <td>
                                         @count
                                     </td>
                                     <td>
-                                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@category.Id"><i class="mdi mdi-delete-variant"></i></a>
-                                    </td>
+                                        @product.Price
                                     <td>
-                                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@category.Id"><i class="mdi mdi-delete-variant"></i></a>
-                                        <a class="btn btn-sm btn-danger" asp-action="Update" asp-route-id="@category.Id"><i class="mdi mdi-lead-pencil"></i></a>
+                                      <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@product.Id"><i class="mdi mdi-delete-variant"></i></a>
+                                        <a class="btn btn-sm btn-danger" asp-action="Update" asp-route-id="@product.Id"><i class="mdi mdi-lead-pencil"></i></a>
 
                                     </td>
                                 </tr>
