@@ -27,7 +27,7 @@ namespace WebUI.Areas.AdminPanel.Controllers
             return View(categories);
         }
 
-        public IActionResult Show(int? ctId)
+        public IActionResult Show(int ctId)
         {
             products = _context.Products.Where(pr => pr.CategoryId == ctId);
             return View(products);
