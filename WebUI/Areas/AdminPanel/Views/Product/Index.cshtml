@@ -19,29 +19,22 @@
                                     #
                                 </th>
                                 <th>
-                                    Image
-                                </th>
-                                <th>
-                                    Settings
+                                    Product Category
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var category in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @count
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@category.Id"><i class="mdi mdi-delete-variant"></i></a>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@category.Id"><i class="mdi mdi-delete-variant"></i></a>
-                                        <a class="btn btn-sm btn-danger" asp-action="Update" asp-route-id="@category.Id"><i class="mdi mdi-lead-pencil"></i></a>
-
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    @count
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-danger" asp-action="Show" asp-route-id="@category.Id">@category.Name</a>
+                                </td>
+                               
+                            </tr>
                                 count++;
                             }
                         </tbody>

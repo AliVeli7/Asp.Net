@@ -12,14 +12,16 @@ namespace WebUI.Areas.AdminPanel.Controllers
     public class ProductController : Controller
     {
         private AppDbContext _context { get; }
+        private IEnumerable<Category> categories;
 
         public ProductController(AppDbContext context)
         {
             _context = context;
+            categories = _context.Categories.Where(ct => !ct.IsDeleted);
         }
         public IActionResult Index()
         {
-            return View();
+            return View(categories);
         }
 
         public IActionResult Show(Category Id)
