@@ -13,7 +13,7 @@ namespace WebUI.Models
         public int Discount { get; set; }
         public int Count { get; set; }
         public bool isDeleted { get; set; }
-        public ICollection<ProductImage> Images { get; set; }
+        public ProductImage Images { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 

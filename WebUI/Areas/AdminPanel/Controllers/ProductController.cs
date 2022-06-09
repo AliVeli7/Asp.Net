@@ -7,6 +7,7 @@ using WebUI.DAL;
 
 namespace WebUI.Areas.AdminPanel.Controllers
 {
+    [Area("AdminPanel")]
     public class ProductController : Controller
     {
         private AppDbContext _context { get; }
