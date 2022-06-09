@@ -72,17 +72,18 @@ namespace WebUI.Areas.AdminPanel.Controllers
                 return BadRequest();
             Category categoryDb = _context.Categories.Where(c=>c.IsDeleted).FirstOrDefault(c => c.Id == id);
             if (categoryDb == null)
-                return NotFound();
-            if (category.Name.ToLower() == categoryDb.Name.ToLower())
-                return RedirectToAction(nameof(Index));
-            bool isExist = categories.Any(c => c.Name.ToLower() == category.Name.ToLower());
+               return NotFound();
+            //if (category.Name.ToLower() == categoryDb.Name.ToLower())
+            //    return RedirectToAction(nameof(Index));
+            bool isExist = categories.Where(ct => !ct.IsDeleted)
+                .Any(ct => ct.Name.ToLower() == category.Name.ToLower() && ct.Id != category.Id);
             if (isExist)
             {
                 ModelState.AddModelError("Name", $"{category.Name} is Exist");
                 return View();
             }
             categoryDb.Name = category.Name;
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

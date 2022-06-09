@@ -13,6 +13,13 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
+#line 2 "C:\Users\User\Desktop\WebUI\WebUI\Areas\AdminPanel\Views\_ViewImports.cshtml"
+using WebUI.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Users\User\Desktop\WebUI\WebUI\Areas\AdminPanel\Views\Category\Index.cshtml"
 using WebUI.Models;
 
@@ -20,7 +27,7 @@ using WebUI.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"70ed74e2883f3d43e3cfcfe3cbc880a5094ef186", @"/Areas/AdminPanel/Views/Category/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a9af4978b9c2bfca24ef48e96efe5f8573634464", @"/Areas/AdminPanel/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f65427317245de8201b2663474d7e00e835250e8", @"/Areas/AdminPanel/Views/_ViewImports.cshtml")]
     public class Areas_AdminPanel_Views_Category_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Category>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-success"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -64,7 +71,7 @@ using WebUI.Models;
 #line hidden
 #nullable disable
             WriteLiteral("<div class=\"row\">\r\n    <div class=\"col-lg-12 grid-margin stretch-card\">\r\n        <div class=\"card\">\r\n            <div class=\"card-body\">\r\n                <h4 class=\"card-title\">Categories</h4>\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70ed74e2883f3d43e3cfcfe3cbc880a5094ef1865149", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70ed74e2883f3d43e3cfcfe3cbc880a5094ef1865331", async() => {
                 WriteLiteral("Create Category");
             }
             );
@@ -123,7 +130,7 @@ using WebUI.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                                    </td>\r\n                                    <td>\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70ed74e2883f3d43e3cfcfe3cbc880a5094ef1868206", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70ed74e2883f3d43e3cfcfe3cbc880a5094ef1868388", async() => {
                 WriteLiteral("<i class=\"mdi mdi-delete-variant\"></i>");
             }
             );
@@ -155,7 +162,7 @@ using WebUI.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70ed74e2883f3d43e3cfcfe3cbc880a5094ef18610571", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "70ed74e2883f3d43e3cfcfe3cbc880a5094ef18610753", async() => {
                 WriteLiteral("<i class=\"mdi mdi-lead-pencil\"></i>");
             }
             );
