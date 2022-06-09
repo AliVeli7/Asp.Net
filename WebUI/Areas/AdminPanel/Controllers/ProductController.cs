@@ -13,6 +13,7 @@ namespace WebUI.Areas.AdminPanel.Controllers
     {
         private AppDbContext _context { get; }
         private IEnumerable<Category> categories;
+        private IEnumerable<Product> products;
 
         public ProductController(AppDbContext context)
         {
@@ -24,17 +25,19 @@ namespace WebUI.Areas.AdminPanel.Controllers
             return View(categories);
         }
 
-        public IActionResult Show(Category Id)
+        public IActionResult Show(int ctId)
         {
-            if (Id == null)
+            if (ctId == null)
             {
                 return BadRequest();
             }
-            var product = _context.Categories.Find(Id);
-            if (product == null)
+            var category = _context.Categories.Find(ctId);
+            if (category == null)
             {
                 return NotFound();
             }
+            
+
             return View(_context.Products);
         }
     }

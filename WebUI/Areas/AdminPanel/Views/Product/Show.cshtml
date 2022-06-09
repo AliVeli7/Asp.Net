@@ -27,21 +27,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var product in Model.Products)
+                            @foreach (var product in @Model.Products)
                             {
-                                <tr>
-                                    <td>
-                                        @count
-                                    </td>
-                                    <td>
-                                        @product.Price
-                                    <td>
-                                      <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@product.Id"><i class="mdi mdi-delete-variant"></i></a>
-                                        <a class="btn btn-sm btn-danger" asp-action="Update" asp-route-id="@product.Id"><i class="mdi mdi-lead-pencil"></i></a>
-
-                                    </td>
-                                </tr>
-                                count++;
+                                <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+                                    <div class="product-item text-center" data-id="@product.Category.Name.ToLower()">
+                                        <div class="img">
+                                            <a href="">
+                                                <img src="" class="img-fluid" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="title mt-3">
+                                            <h6>@product.Title</h6>
+                                        </div>
+                                            <span class="text-black-50">@product.Price</span>
+                                        
+                                    </div>
+                                </div>
                             }
                         </tbody>
                     </table>
