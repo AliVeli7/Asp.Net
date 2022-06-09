@@ -14,7 +14,6 @@ namespace WebUI.Areas.AdminPanel.Controllers
         private AppDbContext _context { get; }
         private IEnumerable<Category> categories;
         private IEnumerable<Product> products;
-        private List<Product> GetProducts;
 
 
         public ProductController(AppDbContext context)
@@ -27,27 +26,11 @@ namespace WebUI.Areas.AdminPanel.Controllers
         {
             return View(categories);
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+
         public IActionResult Show(int? ctId)
         {
-            if (ctId == null)
-            {
-                return BadRequest();
-            }
-            var category = _context.Categories.Find(ctId);
-            if (category == null)
-            {
-                return NotFound();
-            }
-            foreach (var item in products)
-            {
-                if (item.CategoryId==ctId)
-                {
-                    GetProducts.Add(item);
-                }
-            }
-            return View(GetProducts);
+            products = _context.Products.Where(pr => pr.CategoryId == ctId);
+            return View(products);
         }
     }
 }
