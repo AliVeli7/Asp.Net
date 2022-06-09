@@ -46,7 +46,7 @@
                             <i class="fas fa-caret-down"></i>
                             <ul class="category list-unstyled" style="display: none;">
                                 <li><a href="" data-id="all">All</a></li>
-                                @foreach (var ct in Model.Categories)
+                                @foreach (var ct in @Model.Categories)
                                 {
                                     <li><a href="" data-id="@ct.Name.ToLower()">@ct.Name</a></li>
                                 }
@@ -55,7 +55,7 @@
                     </ul>
                     <ul class="category d-none d-md-flex list-unstyled">
                         <li><a href="" data-id="all">All</a></li>
-                        @foreach (var ct in Model.Categories)
+                        @foreach (var ct in @Model.Categories)
                         {
                             <li><a href="" data-id="@ct.Name.ToLower()">@ct.Name</a></li>
                         }
@@ -69,13 +69,13 @@
                 </div>
             </div>
             <div class="row">
-                @foreach (var product in Model.Products)
+                @foreach (var product in @Model.Products)
                 {
                     <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
                         <div class="product-item text-center" data-id="@product.Category.Name.ToLower()">
                             <div class="img">
                                 <a href="">
-                                    <img src="img/@product.Images.ElementAt(0).Url" class="img-fluid" alt="">
+                                    <img src="~/img/@product.Images.ElementAt(0).Url" class="img-fluid" alt="">
                                 </a>
                             </div>
                             <div class="title mt-3">
