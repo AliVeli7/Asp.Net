@@ -46,23 +46,19 @@
                             <i class="fas fa-caret-down"></i>
                             <ul class="category list-unstyled" style="display: none;">
                                 <li><a href="" data-id="all">All</a></li>
-                                <li><a href="" data-id="popular">Popular</a></li>
-                                <li><a href="" data-id="winter">Winter</a></li>
-                                <li><a href="" data-id="various">Various</a></li>
-                                <li><a href="" data-id="exotic">Exotic</a></li>
-                                <li><a href="" data-id="green">Greens</a></li>
-                                <li><a href="" data-id="cactuse">Cactuses</a></li>
+                                @foreach (var ct in Model.Categories)
+                                {
+                                    <li><a href="" data-id="@ct.Name.ToLower()">@ct.Name</a></li>
+                                }
                             </ul>
                         </li>
                     </ul>
                     <ul class="category d-none d-md-flex list-unstyled">
                         <li><a href="" data-id="all">All</a></li>
-                        <li><a href="" data-id="popular">Popular</a></li>
-                        <li><a href="" data-id="winter">Winter</a></li>
-                        <li><a href="" data-id="various">Various</a></li>
-                        <li><a href="" data-id="exotic">Exotic</a></li>
-                        <li><a href="" data-id="green">Greens</a></li>
-                        <li><a href="" data-id="cactuse">Cactuses</a></li>
+                        @foreach (var ct in Model.Categories)
+                        {
+                            <li><a href="" data-id="@ct.Name.ToLower()">@ct.Name</a></li>
+                        }
                     </ul>
                     <ul class="list-unstyled">
                         <li>
