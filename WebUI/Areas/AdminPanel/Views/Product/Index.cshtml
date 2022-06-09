@@ -11,7 +11,7 @@
             <div class="card-body">
                 <h4 class="card-title">Product</h4>
                 <a class="btn btn-success" asp-action="Create">Create Product</a>
-                <div class="table-responsive pt-3">
+                <div class="table-responsive pt-3" >
                     <table class="table table-dark">
                         <thead>
                             <tr>
@@ -31,7 +31,7 @@
                                     @count
                                 </td>
                                 <td>
-                                    <a class="btn btn-sm btn-danger" asp-action="Show" asp-route-id="@category.Id">@category.Name</a>
+                                    <a class="btn btn-sm btn-danger" name="Id" asp-action="Show" asp-route-id="@category.Id">@category.Name</a>
                                 </td>
                                
                             </tr>
