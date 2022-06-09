@@ -1,7 +1,7 @@
 ﻿@using WebUI.Models
 @model Slide
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Update";
 }
 
 
@@ -12,7 +12,7 @@
                 <h4 class="card-title">Update Slide</h4>
 
                 <form class="forms-sample" method="post" enctype="multipart/form-data">
-                    <img src="~/img/@Model.Url" style="width:90px; height:50px" />
+                    <img src="~/img/@Model.Url" style="width:100px; height:50px" />
                     <div class="form-group">
                         <label asp-for="Photo">Select Photo</label>
                         <input asp-for="Photo" class="form-control">
