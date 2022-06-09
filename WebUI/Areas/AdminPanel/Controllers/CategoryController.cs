@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using WebUI.DAL;
 using WebUI.Models;
-using WebUI.ViewModels.Category;
+using WebUI.ViewModels.Categoryy;
 
 namespace WebUI.Areas.AdminPanel.Controllers
 {

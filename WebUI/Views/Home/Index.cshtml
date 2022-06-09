@@ -1,4 +1,5 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Index";
 }
 
@@ -12,7 +13,7 @@
         <div class="owl-carousel slider">
             @foreach (var slide in Model.Slides)
             {
-                <div> <img src="img/@slide.Url" alt=""> </div>
+                <div> <img src="~/img/@slide.Url" alt=""> </div>
             }
         </div>
         <div class="container context pl-lg-5 ml-lg-3">
