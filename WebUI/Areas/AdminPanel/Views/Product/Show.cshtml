@@ -53,6 +53,8 @@
 
 <div class="container">
     <div class="row">
+        <h4 class="card-title">Products</h4>
+        <a class="btn btn-success" asp-action="Create" style="width:150px; height:35px" >Create Product</a>
         <div class="col-12">
             <table class="table table-image">
                 <thead>
@@ -68,19 +70,19 @@
                 <tbody>
                     @foreach (var product in Model)
                     {
-                    <tr>
-                        <th scope="row">@count</th>
-                        <td class="w-25">
-                            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg" class="img-fluid img-thumbnail" alt="Sheep" style="width:400px; height:200px">
-                        </td>
-                        <td>@product.Title</td>
-                        <td>$@product.Price</td>
-                        <td>@product.Count</td>
-                        <td>
-                            <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@product.Id"><i class="mdi mdi-delete-variant"></i></a>
-                            <a class="btn btn-sm btn-danger" asp-action="Update" asp-route-id="@product.Id"><i class="mdi mdi-lead-pencil"></i></a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th scope="row">@count</th>
+                            <td class="w-25">
+                                <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg" class="img-fluid img-thumbnail" alt="Sheep" style="width:400px; height:200px">
+                            </td>
+                            <td>@product.Title</td>
+                            <td>$@product.Price</td>
+                            <td>@product.Count</td>
+                            <td>
+                                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@product.Id"><i class="mdi mdi-delete-variant"></i></a>
+                                <a class="btn btn-sm btn-danger" asp-action="Update" asp-route-id="@product.Id"><i class="mdi mdi-lead-pencil"></i></a>
+                            </td>
+                        </tr>
                         count++;
 
                     }

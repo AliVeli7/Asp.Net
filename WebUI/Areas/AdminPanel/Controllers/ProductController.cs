@@ -29,8 +29,26 @@ namespace WebUI.Areas.AdminPanel.Controllers
 
         public IActionResult Show(int Id)
         {
-            products = _context.Products.Where(pr => pr.CategoryId == Id);
+            products = _context.Products.Where(pr => pr.CategoryId == Id&&pr.isDeleted==false);
             return View(products);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+                return BadRequest();
+            Product productDb = _context.Products.Where(c =>!c.isDeleted).FirstOrDefault(c => c.Id == id);
+            if (productDb == null)
+                return NotFound();
+            // _context.Categories.Remove(categoryDb);
+            productDb.isDeleted = true;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
