@@ -5,7 +5,7 @@
     int count = 1;
 }
 
-<div class="row">
+@*<div class="row">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
@@ -49,5 +49,43 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-image">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Count</th>
+                        <th scope="col">Settings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model)
+                    {
+                    <tr>
+                        <th scope="row">@count</th>
+                        <td class="w-25">
+                            <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg" class="img-fluid img-thumbnail" alt="Sheep" style="width:400px; height:200px">
+                        </td>
+                        <td>@product.Title</td>
+                        <td>$@product.Price</td>
+                        <td>@product.Count</td>
+                        <td>
+                            <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@product.Id"><i class="mdi mdi-delete-variant"></i></a>
+                            <a class="btn btn-sm btn-danger" asp-action="Update" asp-route-id="@product.Id"><i class="mdi mdi-lead-pencil"></i></a>
+                        </td>
+                    </tr>
+                        count++;
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
