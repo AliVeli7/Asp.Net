@@ -32,12 +32,17 @@ namespace WebUI.Areas.AdminPanel.Controllers
             return View(categories);
         }
 
-        public IActionResult Show(int Id)
+        public IActionResult ShowById(int? Id)
         {
-            products = _context.Products.Where(pr => pr.CategoryId == Id&&pr.isDeleted==false);
+            products = _context.Products.Where(pr => pr.Id == Id&&pr.isDeleted==false);
             return View(products);
         }
 
+        public IActionResult Show(int Id)
+        {
+            products = _context.Products.Where(pr => pr.CategoryId == Id && pr.isDeleted == false);
+            return View(products);
+        }
         public IActionResult Create()
         {
 
