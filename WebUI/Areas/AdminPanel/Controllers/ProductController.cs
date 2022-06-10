@@ -82,7 +82,7 @@ namespace WebUI.Areas.AdminPanel.Controllers
             Product productDb = _context.Products.Where(c =>!c.isDeleted).FirstOrDefault(c => c.Id == id);
             if (productDb == null)
                 return NotFound();
-            // _context.Categories.Remove(categoryDb);
+            // _context.Products.Remove(ProductDb);
             productDb.isDeleted = true;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -129,6 +129,16 @@ namespace WebUI.Areas.AdminPanel.Controllers
                 ModelState.AddModelError("Photo", "Type of file  must be image");
                 return View();
             }
+            Product product = new Product
+            {
+                CategoryId = newProduct.CategoryId,
+                Title = newProduct.Title,
+                Count = newProduct.Count,
+                Price = newProduct.Price
+            };
+            Product productDb = _context.Products.Where(c => !c.isDeleted).FirstOrDefault(c => c.Id == id);
+            productDb.isDeleted = true;
+            await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 
