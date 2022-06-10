@@ -2,6 +2,7 @@
 @model Product
 @{
     ViewData["Title"] = "Create";
+
 }
 <div class="row">
     <div class="col-md-6 grid-margin stretch-card">
@@ -23,7 +24,12 @@
                         <input asp-for="Count" class="form-control">
                         <span class="text-danger" asp-validation-for="Price"></span>
                         <label asp-for="CategoryId">Select Category</label>
-                        <input asp-for="CategoryId" class="form-control">
+                        <select name="categoryId">
+                            @foreach (Category item in ViewBag.categories)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+                        </select>
                         <span class="text-danger" asp-validation-for="CategoryId"></span>
                     </div>
 

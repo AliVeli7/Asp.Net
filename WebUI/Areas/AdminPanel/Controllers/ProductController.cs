@@ -45,12 +45,12 @@ namespace WebUI.Areas.AdminPanel.Controllers
         }
         public IActionResult Create()
         {
-
+            ViewBag.categories = _context.Categories.ToList() ;
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Product product)
+        public async Task<IActionResult> Create(Product product, int categoryId)
         {
             if (!ModelState.IsValid)
             {
@@ -68,10 +68,10 @@ namespace WebUI.Areas.AdminPanel.Controllers
             }
             Product NewProduct = new Product
             {
-                CategoryId = product.CategoryId,
                 Title = product.Title,
                 Count=product.Count,
-                Price=product.Price
+                Price=product.Price,
+                CategoryId = categoryId
             };
             await _context.Products.AddAsync(NewProduct);
             await _context.SaveChangesAsync();
@@ -79,6 +79,7 @@ namespace WebUI.Areas.AdminPanel.Controllers
 
         }
 
+        
 
         public async Task<IActionResult> Delete(int? id)
         {
@@ -104,11 +105,12 @@ namespace WebUI.Areas.AdminPanel.Controllers
             {
                 return NotFound();
             }
+            ViewBag.categories = _context.Categories.ToList();
             return View(product);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int? id, Product newProduct)
+        public async Task<IActionResult> Update(int? id, Product newProduct,int categoryId)
         {
             if (id == null)
             {
@@ -136,7 +138,7 @@ namespace WebUI.Areas.AdminPanel.Controllers
             }
             Product product = new Product
             {
-                CategoryId = newProduct.CategoryId,
+                CategoryId = categoryId,
                 Title = newProduct.Title,
                 Count = newProduct.Count,
                 Price = newProduct.Price
