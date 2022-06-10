@@ -17,7 +17,6 @@ namespace WebUI.Areas.AdminPanel.Controllers
         private AppDbContext _context { get; }
         private IEnumerable<Category> categories;
         private IEnumerable<Product> products;
-        Product NewProduct = new Product();
         private IWebHostEnvironment _env { get; }
 
 
@@ -102,14 +101,16 @@ namespace WebUI.Areas.AdminPanel.Controllers
             }
             return View(product);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(int? id, Product newProduct)
         {
             if (id == null)
             {
                 return BadRequest();
             }
-            var DBslide = _context.Products.Find(id);
-            if (DBslide == null)
+            var ProductDb = _context.Products.Find(id);
+            if (ProductDb == null)
             {
                 return NotFound();
             }
@@ -132,5 +133,6 @@ namespace WebUI.Areas.AdminPanel.Controllers
             return RedirectToAction(nameof(Index));
 
         }
+
     }
 }
