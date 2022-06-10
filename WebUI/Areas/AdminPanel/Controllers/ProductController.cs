@@ -35,8 +35,13 @@ namespace WebUI.Areas.AdminPanel.Controllers
 
         public IActionResult Create()
         {
+
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        
+
 
         public async Task<IActionResult> Delete(int? id)
         {
