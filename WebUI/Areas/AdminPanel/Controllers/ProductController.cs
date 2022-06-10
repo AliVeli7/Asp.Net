@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebUI.DAL;
+using WebUI.Helpers;
 using WebUI.Models;
 
 namespace WebUI.Areas.AdminPanel.Controllers
@@ -14,12 +17,14 @@ namespace WebUI.Areas.AdminPanel.Controllers
         private AppDbContext _context { get; }
         private IEnumerable<Category> categories;
         private IEnumerable<Product> products;
+        private IWebHostEnvironment _env { get; }
 
 
-        public ProductController(AppDbContext context)
+        public ProductController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
             categories = _context.Categories.Where(ct => !ct.IsDeleted);
+            _env = env;
             products = _context.Products.Where(pr => !pr.isDeleted);
         }
         public IActionResult Index()
@@ -40,7 +45,31 @@ namespace WebUI.Areas.AdminPanel.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        
+        public async Task<IActionResult> Create(Product product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if (!product.Photo.CheckFileSize(200))
+            {
+                ModelState.AddModelError("Photo", "Image size must be smaller than 200kb");
+                return View();
+            }
+            if (!product.Photo.CheckFileType("image/"))
+            {
+                ModelState.AddModelError("Photo", "Type of file  must be image");
+                return View();
+            }
+            Product NewProduct = new Product
+            {
+                Id = product.Id
+            };
+            await _context.Products.AddAsync(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
 
 
         public async Task<IActionResult> Delete(int? id)
