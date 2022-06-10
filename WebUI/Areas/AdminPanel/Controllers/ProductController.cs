@@ -17,6 +17,7 @@ namespace WebUI.Areas.AdminPanel.Controllers
         private AppDbContext _context { get; }
         private IEnumerable<Category> categories;
         private IEnumerable<Product> products;
+        Product NewProduct = new Product();
         private IWebHostEnvironment _env { get; }
 
 
@@ -63,9 +64,12 @@ namespace WebUI.Areas.AdminPanel.Controllers
             }
             Product NewProduct = new Product
             {
-                Id = product.Id
+                CategoryId = product.CategoryId,
+                Title = product.Title,
+                Count=product.Count,
+                Price=product.Price
             };
-            await _context.Products.AddAsync(product);
+            await _context.Products.AddAsync(NewProduct);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 
@@ -83,6 +87,50 @@ namespace WebUI.Areas.AdminPanel.Controllers
             productDb.isDeleted = true;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Update(int? id)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+            var product = _context.Products.Find(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+        public async Task<IActionResult> Update(int? id, Product newProduct)
+        {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+            var DBslide = _context.Products.Find(id);
+            if (DBslide == null)
+            {
+                return NotFound();
+            }
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            if (!newProduct.Photo.CheckFileSize(200))
+            {
+                ModelState.AddModelError("Photo", "Image size must be smaller than 200kb");
+                return View();
+            }
+            if (!newProduct.Photo.CheckFileType("image/"))
+            {
+                ModelState.AddModelError("Photo", "Type of file  must be image");
+                return View();
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }
