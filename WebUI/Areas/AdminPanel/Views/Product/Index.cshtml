@@ -12,9 +12,9 @@
                 <h4 class="card-title">Product</h4>
                 <a class="btn btn-success" asp-action="Create">Create Product</a>
                 <form method="post">
-                    <label >Product Id</label>
+                    <label >Search Product by Id</label>
                     <input name="Id" class="form-control" placeholder="Product Id">
-                    <button asp-route-id=Id asp-action="Show" type="submit" class="btn btn-primary mr-2">Find</button>
+                    <button asp-route-id=Id asp-action="ShowById" type="submit" class="btn btn-primary mr-2">Find</button>
                 </form>
                 <div class="table-responsive pt-3">
                     <table class="table table-dark">

@@ -311,3 +311,4 @@ C:\Users\User\Desktop\WebUI\WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel
 C:\Users\User\Desktop\WebUI\WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Show.cshtml.g.cs
 C:\Users\User\Desktop\WebUI\WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Create.cshtml.g.cs
 C:\Users\User\Desktop\WebUI\WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Update.cshtml.g.cs
+C:\Users\User\Desktop\WebUI\WebUI\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\ShowById.cshtml.g.cs
