@@ -96,7 +96,7 @@ namespace WebUI.Areas.AdminPanel.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update(int? id, Slide newSlide)
+        public async Task<IActionResult> Update(int? id, Slide slide)
         {
             if (id == null)
             {
@@ -112,23 +112,23 @@ namespace WebUI.Areas.AdminPanel.Controllers
                 return View();
             }
 
-            if (!newSlide.Photo.CheckFileSize(200))
+            if (!slide.Photo.CheckFileSize(200))
             {
                 ModelState.AddModelError("Photo", "Image size must be smaller than 200kb");
                 return View();
             }
-            if (!newSlide.Photo.CheckFileType("image/"))
+            if (!slide.Photo.CheckFileType("image/"))
             {
                 ModelState.AddModelError("Photo", "Type of file  must be image");
                 return View();
             }
-            newSlide.Url = await newSlide.Photo.SaveFileAsync(_env.WebRootPath, "img");
+            slide.Url = await slide.Photo.SaveFileAsync(_env.WebRootPath, "img");
             var path = Helper.GetPath(_env.WebRootPath, "img", DBslide.Url);
             if (System.IO.File.Exists(path))
             {
                 System.IO.File.Delete(path);
             }
-            DBslide.Url = newSlide.Url;
+            DBslide.Url = slide.Url;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 
