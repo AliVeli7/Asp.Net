@@ -114,7 +114,7 @@ namespace WebUI.Areas.AdminPanel.Controllers
         {
             if (id == null)
             {
-                return BadRequest();
+               
             }
             var ProductDb = _context.Products.Find(id);
             if (ProductDb == null)
